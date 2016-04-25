@@ -18,6 +18,7 @@ private:
 	VectorFloat2 textureOffset;
 	bool hitboxVisable;
 	int currentSpriteState;
+	bool b_animate;
 
 	virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 public:
@@ -44,6 +45,7 @@ public:
 		else
 			this->hitboxVisable = true;
 	}
+	void setAnimated(bool a) { this->b_animate = a; }
 
 	//getters
 	sf::Sprite getSprite()const;

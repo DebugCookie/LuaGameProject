@@ -1,8 +1,26 @@
-﻿  Object.cpp
-e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\object.h(36): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+﻿  main.cpp
 e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\object.h(37): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\object.cpp(36): warning C4018: '<': signed/unsigned mismatch
-e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\object.cpp(38): warning C4018: '<': signed/unsigned mismatch
-e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\object.cpp(52): warning C4018: '>=': signed/unsigned mismatch
-e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\object.cpp(70): warning C4018: '>=': signed/unsigned mismatch
+e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\object.h(38): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\main.cpp(80): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\main.cpp(108): warning C4244: 'initializing': conversion from 'lua_Number' to 'float', possible loss of data
+e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\main.cpp(109): warning C4244: 'initializing': conversion from 'lua_Number' to 'float', possible loss of data
+e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\main.cpp(153): warning C4244: 'initializing': conversion from 'lua_Number' to 'float', possible loss of data
+e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\main.cpp(154): warning C4244: 'initializing': conversion from 'lua_Number' to 'float', possible loss of data
+e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\main.cpp(174): warning C4244: 'argument': conversion from 'lua_Number' to 'int', possible loss of data
+e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\main.cpp(182): warning C4244: 'argument': conversion from 'lua_Number' to 'int', possible loss of data
+e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\main.cpp(191): warning C4244: 'argument': conversion from 'lua_Number' to 'int', possible loss of data
+e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\main.cpp(199): warning C4800: 'lua_Number': forcing value to bool 'true' or 'false' (performance warning)
+e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\main.cpp(215): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
+  Object.cpp
+e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\object.h(37): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\object.h(38): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\object.cpp(37): warning C4018: '<': signed/unsigned mismatch
+e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\object.cpp(39): warning C4018: '<': signed/unsigned mismatch
+e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\object.cpp(53): warning C4018: '>=': signed/unsigned mismatch
+e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\object.cpp(71): warning C4018: '>=': signed/unsigned mismatch
+  Generating Code...
+  Skipping... (no relevant changes detected)
+  player.cpp
+  ObjectHandler.cpp
+  Engine.cpp
   direct2dTest.vcxproj -> E:\users\hampus\documents\visual studio 2015\Projects\direct2dTest\Debug\direct2dTest.exe

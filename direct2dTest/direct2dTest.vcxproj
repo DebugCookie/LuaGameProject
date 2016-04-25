@@ -174,6 +174,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="keys.lua" />
+    <None Include="level.lua" />
     <None Include="main.lua" />
     <None Include="Object.lua" />
   </ItemGroup>

@@ -22,6 +22,7 @@ Object::Object(std::string texture)
 	this->currentSpriteState = 0;
 
 	this->hitboxVisable = true;
+	this->b_animate = false;
 
 	this->visualBoundingbox.setSize(sf::Vector2f(this->size.x, this->size.y));
 	this->visualBoundingbox.setFillColor(sf::Color(0, 0, 0, 0));
@@ -45,7 +46,7 @@ Object::~Object()
 void Object::animate(float dt, int frameCount, int frameSpace)
 {
 
-	if (frameCount % frameSpace * dt == 0 && this->sprites[this->spriteCount].size() > 0)
+	if (frameCount % frameSpace * dt == 0 && this->sprites[this->spriteCount].size() > 0 && this->b_animate)
 	{
 		this->sprite.setTexture(*this->sprites[this->currentSpriteState][this->spriteCount]);
 		this->spriteCount++;

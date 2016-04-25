@@ -209,6 +209,14 @@ int object_ToggleVisableBB(lua_State* lua)
 	return 0;
 }
 
+int object_setAnimated(lua_State* lua)
+{
+	Object* o = l_CheckObject(lua, 1);
+	o->setAnimated(lua_toboolean(lua, 2));
+
+	return 0;
+}
+
 
 void RegisterObject(lua_State* lua)
 {
@@ -225,6 +233,7 @@ void RegisterObject(lua_State* lua)
 		{ "setSpriteState",	object_setSpriteState },
 		{ "setTextureOffset",	object_setTextureOffset },
 		{ "setVisableBB",	object_setVisableBB },
+		{ "setAnimated",	object_setAnimated },
 
 		//getters
 		{ "getPos",			object_getPos },

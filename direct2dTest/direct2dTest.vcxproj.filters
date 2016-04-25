@@ -79,5 +79,8 @@
     <None Include="keys.lua">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="level.lua">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

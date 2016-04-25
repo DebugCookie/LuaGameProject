@@ -11,29 +11,6 @@ player:addDefaultAnimation()
 
 
 
-wall0 = Object.New()
-wall0:addDefaultAnimation()
-wall0:setSize(600, 10)
-
-wall1 = Object.New()
-wall1:addDefaultAnimation()
-wall1:setSize(600, 10)
-wall1:setPos(0, 390)
-
-wall2 = Object.New()
-wall2:addDefaultAnimation()
-wall2:setSize(10, 400)
-
-wall3 = Object.New()
-wall3:addDefaultAnimation()
-wall3:setSize(10, 400)
-wall3:setPos(590, 0)
-
-bob2 = Object.New()
-bob2:addDefaultAnimation()
-bob2:setPos(500, 200)
-bob2:setSize(20,20)
-
 function update()
 
 	if right then

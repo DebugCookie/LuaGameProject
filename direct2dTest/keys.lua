@@ -1,32 +1,72 @@
+left = false
+up = false
+down = false
+right = false
 
-function LeftPressed()
-	bob:setPos(bob:getPosX() - 0.01, bob:getPosY())
+
+
+
+function LeftPressed()--Left
+	left = true
+end
+function LeftReleased()
+	left = false
 end
 
-function RightPressed()
-	bob:setPos(bob:getPosX() + 0.01, bob:getPosY())
+function RightPressed()--Right
+	right = true
+end
+function RightReleased()
+	right = false
 end
 
-function UpPressed()
-	bob:setPos(bob:getPosX(), bob:getPosY() - 0.01)
+function UpPressed()--Up
+	up = true
+end
+function UpReleased()
+	up = false
 end
 
-function DownPressed()
-	bob:setPos(bob:getPosX(), bob:getPosY() + 0.01)
+function DownPressed()--Down
+	down = true
+end
+function DownReleased()
+	down = false
 end
 
-function APressed()
-	bob:setPos(bob:getPosX() - 0.01, bob:getPosY())
+function APressed()--A
+	left = true
+end
+function AReleased()
+	left = false
 end
 
-function DPressed()
-	bob:setPos(bob:getPosX() + 0.01, bob:getPosY())
+function DPressed()--D
+	right = true
+end
+function DReleased()
+	right = false
 end
 
-function WPressed()
-	bob:setPos(bob:getPosX(), bob:getPosY() - 0.01)
+function WPressed()--W
+	up = true
+end
+function WReleased()
+	up = false
 end
 
-function SPressed()
-	bob:setPos(bob:getPosX(), bob:getPosY() + 0.01)
+function SPressed()--S
+	down = true
 end
+function SReleased()
+	down = false
+end
+
+function EscPressed()--Esc
+
+	bob:toggleVisableBB()
+end
+function EscReleased()
+	
+end
+

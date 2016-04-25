@@ -21,5 +21,9 @@ struct VectorFloat2
 		this->x = x;
 		this->y = y;
 	}
+	VectorFloat2 operator+(VectorFloat2& other)
+	{
+		return VectorFloat2(this->x + other.x, this->y + other.y);
+	}
 };
 

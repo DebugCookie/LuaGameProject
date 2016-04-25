@@ -73,6 +73,11 @@
     <None Include="main.lua">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="keys.lua" />
+    <None Include="Object.lua">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="keys.lua">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

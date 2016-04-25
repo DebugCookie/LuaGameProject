@@ -24,12 +24,12 @@ int main()
 				window.close();
 		}
 
-		
+
 		dt = clock.restart().asSeconds();
 
 
 		engine->update(dt);
-		
+
 
 		window.clear();
 		window.draw(*engine);
@@ -52,12 +52,12 @@ int object_create(lua_State* lua)
 		*object = new Object(name);
 
 		engine->addObject(*object);
-		
+
 
 		luaL_getmetatable(lua, "MetaObject");
 		lua_setmetatable(lua, -2);
 
-		
+
 
 		std::cout << "[C++] Created object - " << name << std::endl;
 	}
@@ -135,15 +135,77 @@ int object_getPosY(lua_State* lua)
 	return 1;
 }
 
-int object_collision(lua_State* lua) 
+int object_collision(lua_State* lua)
 {
 	Object* o1 = l_CheckObject(lua, 1);
 	Object* o2 = l_CheckObject(lua, 2);
 
-	
+
 	lua_pushboolean(lua, engine->collision(o1, o2));
 
 	return 1;
+}
+
+int object_setSize(lua_State* lua)
+{
+	Object* o = l_CheckObject(lua, 1);
+	float x = lua_tonumber(lua, 2);
+	float y = lua_tonumber(lua, 3);
+	o->setSize(x, y);
+	return 0;
+}
+
+int object_addSpriteState(lua_State* lua)
+{
+	Object* o = l_CheckObject(lua, 1);
+
+	lua_pushnumber(lua, o->addSpriteState());
+
+	return 1;
+}
+
+int object_addToSpriteState(lua_State* lua)
+{
+	Object* o = l_CheckObject(lua, 1);
+
+	lua_pushboolean(lua,
+		o->addSpriteToSpriteState(lua_tonumber(lua, 2), lua_tonumber(lua, 3),
+			lua_tonumber(lua, 4), lua_tonumber(lua, 5), lua_tonumber(lua, 6)));
+
+	return 1;
+}
+
+int object_setSpriteState(lua_State* lua)
+{
+	Object* o = l_CheckObject(lua, 1);
+	o->setSpriteState(lua_tonumber(lua, 2));
+
+	return 0;
+}
+
+int object_setTextureOffset(lua_State* lua)
+{
+	Object* o = l_CheckObject(lua, 1);
+	o->setTextureOffset(lua_tonumber(lua, 2),
+		lua_tonumber(lua, 3));
+
+	return 0;
+}
+
+int object_setVisableBB(lua_State* lua)
+{
+	Object* o = l_CheckObject(lua, 1);
+	o->setVisableBoundingBox(lua_tonumber(lua, 2));
+
+	return 0;
+}
+
+int object_ToggleVisableBB(lua_State* lua)
+{
+	Object* o = l_CheckObject(lua, 1);
+	o->toggleVisableBoundingBox();
+
+	return 0;
 }
 
 
@@ -155,10 +217,23 @@ void RegisterObject(lua_State* lua)
 	luaL_Reg sMonsterRegs[] =
 	{
 		{ "New",			object_create },
+
+		//seters
 		{ "setPos",			object_setPos },
+		{ "setSize",		object_setSize },
+		{ "setSpriteState",	object_setSpriteState },
+		{ "setTextureOffset",	object_setTextureOffset },
+		{ "setVisableBB",	object_setVisableBB },
+
+		//getters
 		{ "getPos",			object_getPos },
 		{ "getPosX",		object_getPosX },
 		{ "getPosY",		object_getPosY },
+
+		{ "addSpriteState",	object_addSpriteState },
+		{ "addToSpriteState",	object_addToSpriteState },
+		{ "toggleVisableBB",	object_ToggleVisableBB },
+
 		{ "collision",		object_collision },
 		{ "__gc",			object_destroy },
 		{ NULL, NULL }
@@ -172,3 +247,4 @@ void RegisterObject(lua_State* lua)
 
 	lua_setglobal(lua, "Object");
 }
+

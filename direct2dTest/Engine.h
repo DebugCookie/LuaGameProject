@@ -10,8 +10,9 @@ private:
 	std::vector<Object*> objects;
 
 	lua_State* lua;
-
 	int frameCount;
+
+
 
 	virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 	void runLuaFunction(char* functionName);//only works on void functions

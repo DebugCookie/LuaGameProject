@@ -1,8 +1,6 @@
-﻿  Object.cpp
-  Generating Code...
-  Skipping... (no relevant changes detected)
-  player.cpp
-  main.cpp
-  ObjectHandler.cpp
-  Engine.cpp
+﻿  Engine.cpp
+e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\object.h(36): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\object.h(37): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\engine.cpp(7): warning C4018: '<': signed/unsigned mismatch
+e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\engine.cpp(58): warning C4018: '<': signed/unsigned mismatch
   direct2dTest.vcxproj -> E:\users\hampus\documents\visual studio 2015\Projects\direct2dTest\Debug\direct2dTest.exe

@@ -52,6 +52,8 @@ void Engine::update(float dt)
 	lua_pushnumber(lua, this->frameCount);
 	lua_setglobal(lua, "frameCount");
 
+	lua_pushnumber(lua, dt);
+	lua_setglobal(lua, "dt");
 
 	this->runLuaFunction("update");
 

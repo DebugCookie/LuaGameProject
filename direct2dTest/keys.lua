@@ -64,7 +64,7 @@ end
 
 function EscPressed()--Esc
 
-	bob:toggleVisableBB()
+	player:toggleVisableBB()
 end
 function EscReleased()
 	

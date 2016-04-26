@@ -21,14 +21,17 @@ public:
 	~Engine();
 
 
-	void addObject(Object * object) {
-		this->objects.push_back(object);
-	}
+	void addObject(Object* obj, std::string name = "default.png");
 	lua_State* getLua() {
 		return this->lua;}
 
 	void update(float dt);
 	void keyboard();
 	bool collision(Object* obj1, Object* obj2);
+	sf::Vector2i getMousePos() {return sf::Mouse::getPosition(*this->window);}
+	int getNrOfObj() { return this->objects.size(); }
+	void removeObj(int index) {
+		this->objects.erase(this->objects.begin() + index - 1);
+	}
 
 };

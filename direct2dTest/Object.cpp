@@ -12,14 +12,17 @@ void Object::draw(sf::RenderTarget & target, sf::RenderStates states) const
 	
 }
 
-Object::Object(std::string texture)
+Object::Object(int index, std::string texture)
 {
-
+	this->myIndex = index;
 	this->texture.loadFromFile(texture);
 	this->sprite.setTexture(this->texture);
 	this->spriteCount = 0;
 	this->textureSource = texture;
 	this->currentSpriteState = 0;
+
+	this->size.x = 1;
+	this->size.y = 1;
 
 	this->hitboxVisable = true;
 	this->b_animate = false;

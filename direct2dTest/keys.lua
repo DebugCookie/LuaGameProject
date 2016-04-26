@@ -76,3 +76,10 @@ end
 function MouseLeftReleased()
 	leftMouse = false
 end
+
+function MouseRightPressed()
+	rightMouse = true
+end
+function MouseRightReleased()
+	rightMouse = false
+end

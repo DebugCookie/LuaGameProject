@@ -50,9 +50,8 @@ int object_create(lua_State* lua)
 
 	if (name != nullptr)
 	{
-		*object = new Object(name);
-
-		engine->addObject(*object);
+		*object = new Object(engine->getNrOfObj(), name);
+		engine->addObject(*object, name);
 
 
 		luaL_getmetatable(lua, "MetaObject");
@@ -65,8 +64,7 @@ int object_create(lua_State* lua)
 	else
 	{
 
-		*object = new Object();
-
+		*object = new Object(engine->getNrOfObj());
 		engine->addObject(*object);
 
 		luaL_getmetatable(lua, "MetaObject");
@@ -77,9 +75,12 @@ int object_create(lua_State* lua)
 
 	}
 
-	(*object)->setSize((*object)->getTexture()->getSize().x, (*object)->getTexture()->getSize().y);
+	//(*object)->setSize((*object)->getTexture()->getSize().x, (*object)->getTexture()->getSize().y);
 
-	return 1;
+
+	lua_pushnumber(lua, engine->getNrOfObj());
+
+	return 2;
 
 }
 
@@ -95,10 +96,18 @@ Object* l_CheckObject(lua_State* lua, int nr)
 	return object;
 }
 
-int object_destroy(lua_State* lua)
+int object_gc(lua_State* lua)
 {
 	Object* object = l_CheckObject(lua, 1);
 	delete object;
+	return 0;
+}
+
+int object_destroy(lua_State* lua)
+{
+	Object* object = l_CheckObject(lua, 1);
+
+	engine->removeObj(object->getMyIndex());
 	return 0;
 }
 
@@ -217,6 +226,13 @@ int object_setAnimated(lua_State* lua)
 	return 0;
 }
 
+int m_getMousePos(lua_State* lua)
+{
+	sf::Vector2i pos = engine->getMousePos();
+	lua_pushinteger(lua, pos.x);
+	lua_pushinteger(lua, pos.y);
+	return 2;
+}
 
 void RegisterObject(lua_State* lua)
 {
@@ -244,8 +260,9 @@ void RegisterObject(lua_State* lua)
 		{ "addToSpriteState",	object_addToSpriteState },
 		{ "toggleVisableBB",	object_ToggleVisableBB },
 
+		{ "destroy",		object_destroy },
 		{ "collision",		object_collision },
-		{ "__gc",			object_destroy },
+		{ "__gc",			object_gc },
 		{ NULL, NULL }
 	};
 

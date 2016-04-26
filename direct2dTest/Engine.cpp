@@ -31,6 +31,8 @@ void Engine::runLuaFunction(char* functionName)
 
 void RegisterObject(lua_State* lua);
 
+int m_getMousePos(lua_State* lua);
+
 
 Engine::Engine(sf::RenderWindow* window)
 {
@@ -40,11 +42,20 @@ Engine::Engine(sf::RenderWindow* window)
 	RegisterObject(lua);
 	this->frameCount = 0;
 
+	lua_pushcfunction(lua, m_getMousePos);
+	lua_setglobal(lua, "getMousePos");
+
 }
 
 Engine::~Engine()
 {
 
+}
+
+void Engine::addObject(Object* obj, std::string name)
+{
+	//obj = new Object(this->objects.size(), name);
+	this->objects.push_back(obj);
 }
 
 void Engine::update(float dt)
@@ -67,8 +78,17 @@ void Engine::update(float dt)
 }
 
 
+
 void Engine::keyboard()
 {
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Right))//Right
+	{
+		this->runLuaFunction("MouseRightPressed");
+	}
+	else {
+		this->runLuaFunction("MouseRightReleased");
+	}
+
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Left))//left
 	{
 		this->runLuaFunction("MouseLeftPressed");

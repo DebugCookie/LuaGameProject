@@ -23,10 +23,11 @@ end
 
 function createWall(texturePath, st_gridX, st_gridY, end_gridX, end_gridY)
 	level.nrOfWalls = level.nrOfWalls + 1
-	level.walls[level.nrOfWalls] = Object.New(texturePath)
+	level.walls[level.nrOfWalls], i = Object.New(texturePath)
 	level.walls[level.nrOfWalls]:setPos(st_gridX * 10, st_gridY * 10)
 	level.walls[level.nrOfWalls]:setSize(10 * (end_gridX - st_gridX) + 10, (end_gridY - st_gridY) * 10 + 10)
 	level.walls[level.nrOfWalls]:addDefaultAnimation()
+	level.walls[level.nrOfWalls].index = i
 
 end
 
@@ -58,7 +59,22 @@ function update()
 	if down then
 		player:goDown()
 	end
-
+	if leftMouse then
+		local x,  y = getMousePos()
+		createWall("default.png", x/10, y/10, x/10, y/10)
+	end
+	if rightMouse then
+	local mobj, i = Object.New("transparent.png")
+	mobj:addDefaultAnimation()
+	mobj:setPos(getMousePos())
+	mobj:setSize(20 ,20)
+		for key, value in pairs(level.walls) do
+			if (mobj:collision(value)) then
+				--value:destroy(value.index)
+			end
+		end
+	mobj:destroy(i)
+	end
 	wallCollision()
 
 end

@@ -19,10 +19,11 @@ private:
 	bool hitboxVisable;
 	int currentSpriteState;
 	bool b_animate;
+	int myIndex;
 
 	virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 public:
-	Object(std::string texture = "default.png");
+	Object(int index, std::string texture = "default.png");
 	~Object();
 
 	void animate(float dt, int frameCount, int frameSpace = 0);
@@ -45,11 +46,12 @@ public:
 		else
 			this->hitboxVisable = true;
 	}
-	void setAnimated(bool a) { this->b_animate = a; }
+	void setAnimated(bool a) { this->b_animate = a; }//fuck
 
 	//getters
 	sf::Sprite getSprite()const;
 	VectorFloat2 getPos()const;
 	VectorFloat2 getSize()const;
 	sf::Texture* getTexture() { return &this->texture; }
+	int getMyIndex() { return this->myIndex; }
 };

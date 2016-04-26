@@ -27,7 +27,7 @@ function createWall(texturePath, st_gridX, st_gridY, end_gridX, end_gridY)
 	level.walls[level.nrOfWalls]:setPos(st_gridX * 10, st_gridY * 10)
 	level.walls[level.nrOfWalls]:setSize(10 * (end_gridX - st_gridX) + 10, (end_gridY - st_gridY) * 10 + 10)
 	level.walls[level.nrOfWalls]:addDefaultAnimation()
-	level.walls[level.nrOfWalls].index = i
+	--level.walls[level.nrOfWalls].index = i
 
 end
 

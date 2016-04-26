@@ -70,3 +70,9 @@ function EscReleased()
 	
 end
 
+function MouseLeftPressed()
+	leftMouse = true
+end
+function MouseLeftReleased()
+	leftMouse = false
+end

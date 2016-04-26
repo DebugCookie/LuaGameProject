@@ -11,13 +11,13 @@ private:
 
 	lua_State* lua;
 	int frameCount;
-
+	sf::RenderWindow* window;
 
 
 	virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 	void runLuaFunction(char* functionName);//only works on void functions
 public:
-	Engine();
+	Engine(sf::RenderWindow* window);
 	~Engine();
 
 

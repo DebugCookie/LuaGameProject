@@ -32,8 +32,9 @@ void Engine::runLuaFunction(char* functionName)
 void RegisterObject(lua_State* lua);
 
 
-Engine::Engine()
+Engine::Engine(sf::RenderWindow* window)
 {
+	this->window = window;
 	this->lua = luaL_newstate();
 	luaL_openlibs(lua);
 	RegisterObject(lua);
@@ -68,6 +69,13 @@ void Engine::update(float dt)
 
 void Engine::keyboard()
 {
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Left))//left
+	{
+		this->runLuaFunction("MouseLeftPressed");
+	}
+	else {
+		this->runLuaFunction("MouseLeftReleased");
+	}
 
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))//left
@@ -150,6 +158,17 @@ bool Engine::collision(Object * obj1, Object * obj2)
 			obj1->getPos().y < obj2->getPos().y + obj2->getSize().y) ||
 			(obj1->getPos().y + obj1->getSize().y > obj2->getPos().y &&
 				obj1->getPos().y + obj1->getSize().y < obj2->getPos().y + obj2->getSize().y)))
+	{
+		return true;
+	}else if (((obj2->getPos().x > obj1->getPos().x &&
+		obj2->getPos().x < obj1->getPos().x + obj1->getSize().x) ||
+		(obj2->getPos().x + obj2->getSize().x > obj1->getPos().x &&
+			obj2->getPos().x + obj2->getSize().x < obj1->getPos().x + obj1->getSize().x))
+		&&
+		((obj2->getPos().y > obj1->getPos().y &&
+			obj2->getPos().y < obj1->getPos().y + obj1->getSize().y) ||
+			(obj2->getPos().y + obj2->getSize().y > obj1->getPos().y &&
+				obj2->getPos().y + obj2->getSize().y < obj1->getPos().y + obj1->getSize().y)))
 	{
 		return true;
 	}

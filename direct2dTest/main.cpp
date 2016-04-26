@@ -8,7 +8,7 @@ int main()
 {
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 	sf::RenderWindow window(sf::VideoMode(600, 400), "Lua game");
-	engine = new Engine();
+	engine = new Engine(&window);
 	int error = luaL_loadfile(engine->getLua(), "main.lua") || lua_pcall(engine->getLua(), 0, 0, 0);
 
 	sf::Clock clock;

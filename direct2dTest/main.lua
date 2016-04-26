@@ -1,5 +1,6 @@
 require "keys"
 require "Object"
+require "level"
 print("qwek")
 player = Object.New("sprites/magnemite.png")
 player:setAnimated(true)
@@ -10,36 +11,38 @@ player:setPos(300,200)
 
 player:addDefaultAnimation()
 
-wall0 = Object.New()
-wall0:addDefaultAnimation()
-wall0:setSize(600, 10)
 
-wall1 = Object.New()
-wall1:addDefaultAnimation()
-wall1:setSize(600, 10)
-wall1:setPos(0, 390)
 
-wall2 = Object.New()
-wall2:addDefaultAnimation()
-wall2:setSize(10, 400)
 
-wall3 = Object.New()
-wall3:addDefaultAnimation()
-wall3:setSize(10, 400)
-wall3:setPos(590, 0)
 
-bob2 = Object.New()
-bob2:addDefaultAnimation()
-bob2:setPos(500, 200)
-bob2:setSize(20,20)
-
-function createObject(gridX, gridY)
-	bob = Object.New("sprites/pinkiePie.png")
+function createObject(gridX, gridY, texturePath)
+	bob = Object.New(texturePath)
 	bob:addDefaultAnimation()
 	bob:setPos(gridX * 10, gridY * 10)
 end
 
-	createObject(7,7)
+function createWall(texturePath, st_gridX, st_gridY, end_gridX, end_gridY)
+	level.nrOfWalls = level.nrOfWalls + 1
+	level.walls[level.nrOfWalls] = Object.New(texturePath)
+	level.walls[level.nrOfWalls]:setPos(st_gridX * 10, st_gridY * 10)
+	level.walls[level.nrOfWalls]:setSize(10 * (end_gridX - st_gridX) + 10, (end_gridY - st_gridY) * 10 + 10)
+	level.walls[level.nrOfWalls]:addDefaultAnimation()
+
+end
+
+function wallCollision()
+	for i = 1, level.nrOfWalls do
+		player:setCollision(level.walls[i])
+	end
+end
+
+
+createWall("transparent.png", 6,6,6,6)
+createWall("transparent.png", 0, 0, 60, 0)
+createWall("transparent.png", 0, 0, 0, 40)
+createWall("transparent.png", 0, 39, 60, 39)
+createWall("transparent.png", 59, 0, 59, 40)
+
 function update()
 
 
@@ -56,11 +59,8 @@ function update()
 		player:goDown()
 	end
 
-	player:setCollision(bob2)
-	player:setCollision(wall0)
-	player:setCollision(wall1)
-	player:setCollision(wall2)
-	player:setCollision(wall3)
+	wallCollision()
+
 end
 
 

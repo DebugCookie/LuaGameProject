@@ -1,6 +1,9 @@
-﻿  Engine.cpp
-e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\object.h(38): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\object.h(39): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\engine.cpp(7): warning C4018: '<': signed/unsigned mismatch
-e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\engine.cpp(72): warning C4018: '<': signed/unsigned mismatch
-  direct2dTest.vcxproj -> E:\users\hampus\documents\visual studio 2015\Projects\direct2dTest\Debug\direct2dTest.exe
+﻿Build started 2016-04-26 20:14:35.
+     1>Project "E:\Gaming\Documents\GitHub\LuaGameProject\direct2dTest\direct2dTest.vcxproj" on node 2 (Build target(s)).
+     1>Link:
+         direct2dTest.vcxproj -> E:\Gaming\Documents\GitHub\LuaGameProject\Debug\direct2dTest.exe
+     1>Done Building Project "E:\Gaming\Documents\GitHub\LuaGameProject\direct2dTest\direct2dTest.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.08

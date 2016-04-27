@@ -44,7 +44,7 @@ createWall("transparent.png", 0, 0, 0, 40)
 createWall("transparent.png", 0, 39, 60, 39)
 createWall("transparent.png", 59, 0, 59, 40)
 startX, startY = 0
-firstClick = true
+firstLeftClick = true
 
 function update()
 
@@ -61,15 +61,15 @@ function update()
 	if down then
 		player:goDown()
 	end
-	if leftMouse and firstClick then
+	if leftMouse and firstLeftClick then
 		startX,startY = getMousePos()
-		firstClick = false
+		firstLeftClick = false
 		
-	elseif not leftMouse and not firstClick then
-			local x,y = getMousePos()
-			createWall("default.png", startX/10, startY/10, x/10, y/10)
-			firstClick = true
-		end
+	elseif not leftMouse and not firstLeftClick then
+		local x,y = getMousePos()
+		createWall("default.png", startX/10, startY/10, x/10, y/10)
+		firstLeftClick = true
+	end
 	if rightMouse then
 		local mobj, i = Object.New("transparent.png")
 		mobj:addDefaultAnimation()

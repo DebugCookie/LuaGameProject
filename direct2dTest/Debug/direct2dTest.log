@@ -1,4 +1,4 @@
-﻿Build started 2016-04-26 20:14:35.
+﻿Build started 2016-04-27 13:13:24.
      1>Project "E:\Gaming\Documents\GitHub\LuaGameProject\direct2dTest\direct2dTest.vcxproj" on node 2 (Build target(s)).
      1>Link:
          direct2dTest.vcxproj -> E:\Gaming\Documents\GitHub\LuaGameProject\Debug\direct2dTest.exe
@@ -6,4 +6,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.08
+Time Elapsed 00:00:00.51

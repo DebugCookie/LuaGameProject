@@ -1,7 +1,7 @@
 require "keys"
 require "Object"
 require "level"
-print("qwek")
+--print("qwek")
 player = Object.New("sprites/magnemite.png")
 player:setAnimated(true)
 

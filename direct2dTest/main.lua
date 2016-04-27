@@ -43,6 +43,8 @@ createWall("transparent.png", 0, 0, 60, 0)
 createWall("transparent.png", 0, 0, 0, 40)
 createWall("transparent.png", 0, 39, 60, 39)
 createWall("transparent.png", 59, 0, 59, 40)
+startX, startY = 0
+firstClick = true
 
 function update()
 
@@ -59,15 +61,20 @@ function update()
 	if down then
 		player:goDown()
 	end
-	if leftMouse then
-		local x,  y = getMousePos()
-		createWall("default.png", x/10, y/10, x/10, y/10)
-	end
+	if leftMouse and firstClick then
+		startX,startY = getMousePos()
+		firstClick = false
+		
+	elseif not leftMouse and not firstClick then
+			local x,y = getMousePos()
+			createWall("default.png", startX/10, startY/10, x/10, y/10)
+			firstClick = true
+		end
 	if rightMouse then
-	local mobj, i = Object.New("transparent.png")
-	mobj:addDefaultAnimation()
-	mobj:setPos(getMousePos())
-	mobj:setSize(20 ,20)
+		local mobj, i = Object.New("transparent.png")
+		mobj:addDefaultAnimation()
+		mobj:setPos(getMousePos())
+		mobj:setSize(20 ,20)
 		for key, value in pairs(level.walls) do
 			if (mobj:collision(value)) then
 				--value:destroy(value.index)

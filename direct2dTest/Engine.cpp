@@ -40,7 +40,7 @@ Engine::Engine(sf::RenderWindow* window)
 	this->lua = luaL_newstate();
 	luaL_openlibs(lua);
 	RegisterObject(lua);
-	this->frameCount = 0;
+	this->timeCount = 0;
 
 	lua_pushcfunction(lua, m_getMousePos);
 	lua_setglobal(lua, "getMousePos");
@@ -61,8 +61,6 @@ void Engine::addObject(Object* obj, std::string name)
 void Engine::update(float dt)
 {
 	this->keyboard();
-	lua_pushnumber(lua, this->frameCount);
-	lua_setglobal(lua, "frameCount");
 
 	lua_pushnumber(lua, dt);
 	lua_setglobal(lua, "dt");
@@ -71,10 +69,10 @@ void Engine::update(float dt)
 
 	for (int i = 0; i < this->objects.size(); i++)
 	{
-		this->objects[i]->animate(dt, this->frameCount, 500);
+		this->objects[i]->animate(dt);
 	}
 
-	this->frameCount++;
+
 }
 
 
@@ -189,6 +187,19 @@ bool Engine::collision(Object * obj1, Object * obj2)
 			obj2->getPos().y < obj1->getPos().y + obj1->getSize().y) ||
 			(obj2->getPos().y + obj2->getSize().y > obj1->getPos().y &&
 				obj2->getPos().y + obj2->getSize().y < obj1->getPos().y + obj1->getSize().y)))
+	{
+		return true;
+	}
+
+	return false;
+}
+
+bool Engine::collision(Object * obj, float x, float y)
+{
+	if ((x > obj->getPos().x &&
+		x < obj->getPos().x + obj->getSize().x) &&
+		(y > obj->getPos().y &&
+			y < obj->getPos().y + obj->getSize().y))
 	{
 		return true;
 	}

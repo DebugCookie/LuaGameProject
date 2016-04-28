@@ -10,7 +10,7 @@ private:
 	std::vector<Object*> objects;
 
 	lua_State* lua;
-	int frameCount;
+	float timeCount;
 	sf::RenderWindow* window;
 
 
@@ -28,10 +28,11 @@ public:
 	void update(float dt);
 	void keyboard();
 	bool collision(Object* obj1, Object* obj2);
+	bool collision(Object* obj, float x, float y);
 	sf::Vector2i getMousePos() {return sf::Mouse::getPosition(*this->window);}
 	int getNrOfObj() { return this->objects.size(); }
 	void removeObj(int index) {
-		this->objects.erase(this->objects.begin() + index - 1);
+		this->objects.erase(this->objects.begin() + index);
 	}
 
 };

@@ -20,33 +20,40 @@ private:
 	int currentSpriteState;
 	bool b_animate;
 	int myIndex;
+	bool stretchTexture;
+	float animateCount;
 
 	virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 public:
 	Object(int index, std::string texture = "default.png");
 	~Object();
 
-	void animate(float dt, int frameCount, int frameSpace = 0);
+	void animate(float dt);
 	int addSpriteState();
 	bool addSpriteToSpriteState(int x, int y, int width, int height, int index);
+	void removeSpritetate(int index = 0);
 
 	//setters
 	void setPos(float x, float y);
 	void setSize(float width, float height);
 	void setSpriteState(int state) { this->currentSpriteState = state; }
+
 	void setTextureOffset(int x, int y) {
 		this->textureOffset.y = y;
 		this->textureOffset.x = x;
 		this->sprite.setPosition(this->pos.x + x, this->pos.y + y);
 	}
 	void setVisableBoundingBox(bool visable) { this->hitboxVisable = visable; }
+
 	void toggleVisableBoundingBox() {
 		if (this->hitboxVisable)
 			this->hitboxVisable = false;
 		else
 			this->hitboxVisable = true;
 	}
-	void setAnimated(bool a) { this->b_animate = a; }//fuck
+	void setAnimated(bool a) { this->b_animate = a; }
+
+	void setAutoScale(bool s) {this->stretchTexture = s;}
 
 	//getters
 	sf::Sprite getSprite()const;

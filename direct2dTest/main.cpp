@@ -27,7 +27,7 @@ int main()
 
 		dt = clock.restart().asSeconds();
 
-		
+
 
 		engine->update(dt);
 
@@ -74,7 +74,8 @@ int object_create(lua_State* lua)
 		std::cout << "[C++] Default object created" << std::endl;
 
 	}
-
+	(*object)->addSpriteState();
+	(*object)->addSpriteToSpriteState(0, 0, 0, 0, 0);
 	//(*object)->setSize((*object)->getTexture()->getSize().x, (*object)->getTexture()->getSize().y);
 
 
@@ -234,6 +235,44 @@ int m_getMousePos(lua_State* lua)
 	return 2;
 }
 
+int object_removeSpriteState(lua_State* lua)
+{
+	Object* o = l_CheckObject(lua, 1);
+
+	o->removeSpritetate(lua_tonumber(lua, 2));
+
+	return 0;
+}
+
+int object_setAutoScale(lua_State* lua)
+{
+	Object* o = l_CheckObject(lua, 1);
+
+	o->setAutoScale(lua_toboolean(lua, 2));
+
+	return 0;
+}
+
+int object_getIndex(lua_State* lua)
+{
+	Object* o = l_CheckObject(lua, 1);
+
+	lua_pushinteger(lua, o->getMyIndex());
+
+	return 1;
+}
+
+int object_pointCollision(lua_State* lua)
+{
+	Object* o1 = l_CheckObject(lua, 1);
+
+	lua_pushboolean(lua, engine->collision(o1, lua_tonumber(lua, 2), lua_tonumber(lua, 3)));
+
+	return 1;
+}
+
+
+
 void RegisterObject(lua_State* lua)
 {
 	luaL_newmetatable(lua, "MetaObject");
@@ -250,18 +289,22 @@ void RegisterObject(lua_State* lua)
 		{ "setTextureOffset",	object_setTextureOffset },
 		{ "setVisableBB",	object_setVisableBB },
 		{ "setAnimated",	object_setAnimated },
+		{ "setAutoScale",	object_setAutoScale },
 
 		//getters
 		{ "getPos",			object_getPos },
 		{ "getPosX",		object_getPosX },
 		{ "getPosY",		object_getPosY },
+		{ "getIndex",		object_getIndex },
 
 		{ "addSpriteState",	object_addSpriteState },
 		{ "addToSpriteState",	object_addToSpriteState },
 		{ "toggleVisableBB",	object_ToggleVisableBB },
 
+		{ "removeSpriteState",	object_removeSpriteState },
 		{ "destroy",		object_destroy },
 		{ "collision",		object_collision },
+		{ "pointCollision",		object_pointCollision },
 		{ "__gc",			object_gc },
 		{ NULL, NULL }
 	};

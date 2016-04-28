@@ -20,12 +20,14 @@ Object::Object(int index, std::string texture)
 	this->spriteCount = 0;
 	this->textureSource = texture;
 	this->currentSpriteState = 0;
+	this->animateCount = 1;
 
 	this->size.x = 1;
 	this->size.y = 1;
 
 	this->hitboxVisable = true;
 	this->b_animate = false;
+	this->stretchTexture = true;
 
 	this->visualBoundingbox.setSize(sf::Vector2f(this->size.x, this->size.y));
 	this->visualBoundingbox.setFillColor(sf::Color(0, 0, 0, 0));
@@ -46,10 +48,10 @@ Object::~Object()
 	}
 }
 
-void Object::animate(float dt, int frameCount, int frameSpace)
+void Object::animate(float dt)
 {
-
-	if (frameCount % frameSpace * dt == 0 && this->sprites[this->spriteCount].size() > 0 && this->b_animate)
+	this->animateCount += dt;
+	if (this->animateCount >= 0.2f && this->sprites[this->spriteCount].size() > 0 && this->b_animate)
 	{
 		this->sprite.setTexture(*this->sprites[this->currentSpriteState][this->spriteCount]);
 		this->spriteCount++;
@@ -57,6 +59,7 @@ void Object::animate(float dt, int frameCount, int frameSpace)
 		{
 			this->spriteCount = 0;
 		}
+		this->animateCount = 0;
 	}
 }
 
@@ -82,6 +85,15 @@ bool Object::addSpriteToSpriteState(int x, int y, int width, int height, int ind
 	}
 
 	return false;
+}
+
+void Object::removeSpritetate(int index)
+{
+	for (int i = 0; i < this->sprites[index].size(); i++)
+	{
+		delete this->sprites[index][i];
+	}
+	this->sprites.erase(this->sprites.begin() + index);
 }
 
 sf::Sprite Object::getSprite() const
@@ -114,5 +126,10 @@ void Object::setSize(float width, float height)
 	this->size.x = width;
 	this->size.y = height;
 	this->visualBoundingbox.setSize(sf::Vector2f(this->size.x, this->size.y));
+	if (this->stretchTexture)
+	{
+		this->sprite.setScale((float)this->size.x / (float)this->texture.getSize().x,
+			(float)this->size.y / (float)this->texture.getSize().y);
+	}
 }
 

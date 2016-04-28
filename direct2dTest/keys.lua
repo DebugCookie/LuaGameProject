@@ -1,9 +1,3 @@
-left = false
-up = false
-down = false
-right = false
-
-
 
 
 function LeftPressed()--Left
@@ -35,31 +29,31 @@ function DownReleased()
 end
 
 function APressed()--A
-	left = true
+	A = true
 end
 function AReleased()
-	left = false
+	A = false
 end
 
 function DPressed()--D
-	right = true
+	D = true
 end
 function DReleased()
-	right = false
+	D = false
 end
 
 function WPressed()--W
-	up = true
+	W = true
 end
 function WReleased()
-	up = false
+	W = false
 end
 
 function SPressed()--S
-	down = true
+	S = true
 end
 function SReleased()
-	down = false
+	S = false
 end
 
 function EscPressed()--Esc

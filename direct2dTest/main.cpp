@@ -264,13 +264,21 @@ int object_getIndex(lua_State* lua)
 
 int object_pointCollision(lua_State* lua)
 {
-	Object* o1 = l_CheckObject(lua, 1);
+	Object* o = l_CheckObject(lua, 1);
 
-	lua_pushboolean(lua, engine->collision(o1, lua_tonumber(lua, 2), lua_tonumber(lua, 3)));
+	lua_pushboolean(lua, engine->collision(o, lua_tonumber(lua, 2), lua_tonumber(lua, 3)));
 
 	return 1;
 }
 
+int object_setIndex(lua_State* lua)
+{
+	Object* o = l_CheckObject(lua, 1);
+
+	o->setMyIndex(lua_tonumber(lua, 2));
+
+	return 0;
+}
 
 
 void RegisterObject(lua_State* lua)
@@ -290,6 +298,7 @@ void RegisterObject(lua_State* lua)
 		{ "setVisableBB",	object_setVisableBB },
 		{ "setAnimated",	object_setAnimated },
 		{ "setAutoScale",	object_setAutoScale },
+		{ "setIndex",		object_setIndex },
 
 		//getters
 		{ "getPos",			object_getPos },
@@ -304,7 +313,7 @@ void RegisterObject(lua_State* lua)
 		{ "removeSpriteState",	object_removeSpriteState },
 		{ "destroy",		object_destroy },
 		{ "collision",		object_collision },
-		{ "pointCollision",		object_pointCollision },
+		{ "pointCollision",	object_pointCollision },
 		{ "__gc",			object_gc },
 		{ NULL, NULL }
 	};

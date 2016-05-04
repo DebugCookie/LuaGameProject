@@ -68,7 +68,6 @@ int Object::addSpriteState()
 	int index = this->sprites.size();
 	this->sprites.push_back(std::vector<sf::Texture*>());
 
-
 	return index;
 }
 

@@ -52,8 +52,8 @@ public:
 			this->hitboxVisable = true;
 	}
 	void setAnimated(bool a) { this->b_animate = a; }
-
-	void setAutoScale(bool s) {this->stretchTexture = s;}
+	void setMyIndex(int index) { this->myIndex = index; }
+	void setAutoScale(bool s) { this->stretchTexture = s; }
 
 	//getters
 	sf::Sprite getSprite()const;

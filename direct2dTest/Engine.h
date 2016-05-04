@@ -33,6 +33,7 @@ public:
 	int getNrOfObj() { return this->objects.size(); }
 	void removeObj(int index) {
 		this->objects.erase(this->objects.begin() + index);
+	//	std::cout << "index in c++: " << index << "\n";
 	}
 
 };

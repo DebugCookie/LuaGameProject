@@ -1,22 +1,10 @@
-﻿  player.cpp
+﻿  Engine.cpp
 e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\object.h(42): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
 e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\object.h(43): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\player.cpp(66): warning C4244: 'initializing': conversion from 'lua_Number' to 'float', possible loss of data
-e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\player.cpp(67): warning C4244: 'initializing': conversion from 'lua_Number' to 'float', possible loss of data
-e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\player.cpp(68): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  ObjectHandler.cpp
-e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\object.h(42): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\object.h(43): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\objecthandler.cpp(10): warning C4018: '<': signed/unsigned mismatch
-e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\objecthandler.cpp(36): warning C4018: '<': signed/unsigned mismatch
-  Object.cpp
-e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\object.h(42): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\object.h(43): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\object.cpp(42): warning C4018: '<': signed/unsigned mismatch
-e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\object.cpp(44): warning C4018: '<': signed/unsigned mismatch
-e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\object.cpp(58): warning C4018: '>=': signed/unsigned mismatch
-e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\object.cpp(77): warning C4018: '>=': signed/unsigned mismatch
-e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\object.cpp(92): warning C4018: '<': signed/unsigned mismatch
+e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\engine.cpp(7): warning C4018: '<': signed/unsigned mismatch
+e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\engine.cpp(70): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+  Compiling...
   main.cpp
 e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\object.h(42): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
 e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\object.h(43): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
@@ -32,10 +20,8 @@ e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\
 e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\main.cpp(242): warning C4244: 'argument': conversion from 'lua_Number' to 'int', possible loss of data
 e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\main.cpp(251): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
 e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\main.cpp(269): warning C4244: 'argument': conversion from 'lua_Number' to 'float', possible loss of data
-  Engine.cpp
-e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\object.h(42): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\object.h(43): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\engine.cpp(7): warning C4018: '<': signed/unsigned mismatch
-e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\engine.cpp(70): warning C4018: '<': signed/unsigned mismatch
+e:\users\hampus\documents\visual studio 2015\projects\direct2dtest\direct2dtest\main.cpp(278): warning C4244: 'argument': conversion from 'lua_Number' to 'int', possible loss of data
   Generating Code...
+  Skipping... (no relevant changes detected)
+  player.cpp
   direct2dTest.vcxproj -> E:\users\hampus\documents\visual studio 2015\Projects\direct2dTest\Debug\direct2dTest.exe

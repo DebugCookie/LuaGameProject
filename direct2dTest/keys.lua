@@ -58,10 +58,10 @@ end
 
 function EscPressed()--Esc
 
-	player:toggleVisableBB()
+	esc = true
 end
 function EscReleased()
-	
+	esc = false
 end
 
 function MouseLeftPressed()

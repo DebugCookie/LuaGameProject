@@ -163,6 +163,26 @@ void Engine::keyboard()
 	else {
 		this->runLuaFunction("SReleased");
 	}
+
+
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::F1))//F1
+	{
+		this->runLuaFunction("F1Pressed");
+	}
+	else {
+		this->runLuaFunction("F1Released");
+	}
+
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::I))//I
+	{
+		this->runLuaFunction("IPressed");
+	}
+	else {
+		this->runLuaFunction("IReleased");
+	}
+
 }
 
 bool Engine::collision(Object * obj1, Object * obj2)

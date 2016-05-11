@@ -176,6 +176,7 @@
     <None Include="keys.lua" />
     <None Include="level.lua" />
     <None Include="main.lua" />
+    <None Include="modes.lua" />
     <None Include="Object.lua" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

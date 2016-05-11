@@ -77,3 +77,17 @@ end
 function MouseRightReleased()
 	rightMouse = false
 end
+
+function F1Pressed()
+	F1 = true
+end
+function F1Released()
+	F1 = false
+end
+
+function IPressed()
+	I = true
+end
+function IReleased()
+	I = false
+end

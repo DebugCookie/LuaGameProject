@@ -25,7 +25,7 @@ Object::Object(int index, std::string texture)
 	this->size.x = 1;
 	this->size.y = 1;
 
-	this->hitboxVisable = true;
+	this->hitboxVisable = false;
 	this->b_animate = false;
 	this->stretchTexture = true;
 

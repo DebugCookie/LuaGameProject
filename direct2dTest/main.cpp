@@ -280,6 +280,34 @@ int object_setIndex(lua_State* lua)
 	return 0;
 }
 
+int object_getSize(lua_State* lua)
+{
+	Object* o = l_CheckObject(lua, 1);
+
+	lua_pushinteger(lua, o->getSize().x);
+	lua_pushinteger(lua, o->getSize().y);
+
+	return 2;
+}
+
+int object_getSizeX(lua_State* lua)
+{
+	Object* o = l_CheckObject(lua, 1);
+
+	lua_pushinteger(lua, o->getSize().x);
+
+	return 1;
+}
+
+int object_getSizeY(lua_State* lua)
+{
+	Object* o = l_CheckObject(lua, 1);
+
+	lua_pushinteger(lua, o->getSize().y);
+
+	return 1;
+}
+
 
 void RegisterObject(lua_State* lua)
 {
@@ -304,6 +332,9 @@ void RegisterObject(lua_State* lua)
 		{ "getPos",			object_getPos },
 		{ "getPosX",		object_getPosX },
 		{ "getPosY",		object_getPosY },
+		{ "getSize",		object_getSize },
+		{ "getSizeX",		object_getSizeX},
+		{ "getSizeY",		object_getSizeY },
 		{ "getIndex",		object_getIndex },
 
 		{ "addSpriteState",	object_addSpriteState },

@@ -82,5 +82,6 @@
     <None Include="level.lua">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="modes.lua" />
   </ItemGroup>
 </Project>
